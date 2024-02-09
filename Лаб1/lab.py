@@ -122,3 +122,17 @@ def maxSymb():
         xTime = x
     max_lng += 1
     print(max_lng)
+
+#7(7). Дана строка. Необходимо найти минимальное из имеющихся в ней натуральных чисел.
+
+def minMumber():
+    st = str(input())
+    newSt = st.split()
+    minNum = 0.1
+    for x in newSt:
+        x = int(x)
+        if minNum == 0.1:
+            minNum = x
+        if minNum > x:
+            minNum = x
+    print(minNum)
