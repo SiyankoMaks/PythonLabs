@@ -144,3 +144,10 @@ def strSymb():
     for s in st:
         if s.islower():
             print(s)
+
+print("Введите цифру 1, 2 или 3 для выбора задачи")
+a = int(input())
+if a == 1: maxSymb()
+elif a == 2: minMumber()
+elif a == 3: strSymb()
+else: print("Номер введен некорректно")
