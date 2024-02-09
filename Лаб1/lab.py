@@ -136,3 +136,11 @@ def minMumber():
         if minNum > x:
             minNum = x
     print(minNum)
+
+#8(14). Дана строка. Необходимо найти все используемые в ней строчные символы латиницы.
+
+def strSymb():
+    st = str(input())
+    for s in st:
+        if s.islower():
+            print(s)
