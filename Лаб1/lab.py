@@ -102,3 +102,23 @@ text = str(input())
 pattern = r'\b\d{1,2}\s(?:января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря)\s\d{4}\b'
 dates = re.findall(pattern, text)
 print(dates)
+
+# Задание 6-8
+
+#6(5). Дана строка. Необходимо найти наибольшее количество идущих подряд символов кириллицы.
+
+def maxSymb():
+    st = str(input())
+    xTime = 'aa'
+    cur_lng = 0
+    max_lng = 0
+    for x in st:
+        if xTime == x:
+            cur_lng += 1
+            if max_lng < cur_lng:
+                max_lng = cur_lng
+        else:
+            cur_lng = 0
+        xTime = x
+    max_lng += 1
+    print(max_lng)
