@@ -154,8 +154,28 @@ else: print("Номер введен некорректно")
 
 # Задание 9. Прочитать список строк с клавиатуры. Упорядочить по длине сткоки.
 
-print("Введите строку")
-st = str(input())
-st = st.split()
-st.sort(key=len)
-print(st)
+print("Введите список строк")
+strings = []
+st = input()
+while(st):
+    strings.append(st)
+    st = input()
+for i in range(0, len(strings)-1):
+    for j in range(i+1, len(strings)):
+        if(len(strings[i])>len(strings[j])):
+            strings[i], strings[j] = strings[j], strings[i]
+print(strings)
+
+# Задание 10. Дан список строк с клавиатуры. Упорядочить по количеству слов в строке
+
+print("Введите список строк")
+strings = []
+st = input()
+while(st):
+    strings.append(st)
+    st = input()
+for i in range(0, len(strings)-1):
+    for j in range(i+1, len(strings)):
+        if(len(strings[i].split()) > len(strings[j].split())):
+            strings[i], strings[j] = strings[j], strings[i]
+print(strings)
