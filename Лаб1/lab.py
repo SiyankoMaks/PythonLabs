@@ -179,3 +179,22 @@ for i in range(0, len(strings)-1):
         if(len(strings[i].split()) > len(strings[j].split())):
             strings[i], strings[j] = strings[j], strings[i]
 print(strings)
+
+# Задание 11-14. Вариант 11. Задачи 2, 6, 9, 12. Отсортировать строки в указанном порядке.
+
+# 11(2). В порядке увеличения среднего веса ASCII-кода символа строки.
+
+def sortString(s):
+    N = len(s)
+    freq = [0] * 256
+    for i in range(0, N):
+        freq[ord(s[i])] += 1
+    s = ""
+    for i in range(256):
+        for j in range(freq[i]):
+            s = s + chr(i)
+    print(s)
+    return
+print("Введите строку")
+S = str(input())
+sortString(S)
