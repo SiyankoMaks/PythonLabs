@@ -151,3 +151,11 @@ if a == 1: maxSymb()
 elif a == 2: minMumber()
 elif a == 3: strSymb()
 else: print("Номер введен некорректно")
+
+# Задание 9. Прочитать список строк с клавиатуры. Упорядочить по длине сткоки.
+
+print("Введите строку")
+st = str(input())
+st = st.split()
+st.sort(key=len)
+print(st)
