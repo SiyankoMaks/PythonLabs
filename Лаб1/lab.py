@@ -252,3 +252,75 @@ while st:
     st = input()
 sorted_strings = sorted(strings, key=lambda x: square_deviation(x))
 print(sorted_strings)
+
+# 14(12). В порядке увеличение квадратичного отклонения частоты
+# встречаемости самого распространенного символа в наборе строк от частоты его встречаемости в данной строке.
+
+import math
+
+def maxNum(st):
+    max = -1
+    kol = 0
+    for i in range(1, len(st)):
+        if st[i] == st[i - 1]:
+            kol += 1
+        else:
+            kol = 0
+        if kol > max:
+            max = kol
+    return max+1
+
+def maxSymbl(st, mx):
+    newKol = 1
+    for i in range(1, len(st)):
+        if st[i] == st[i-1]:
+            newKol += 1
+        else:
+            newKol = 1
+        if newKol == mx:
+            return st[i]
+
+
+def numMaxSymbl(st1, s):
+    k = 0
+    st1 = st1.replace("", " ")
+    newSt = st1.split()
+    for i in range(len(newSt)):
+        if newSt[i] == s:
+            k += 1
+    return k
+
+print("Введите список строк")
+strings = []
+st = input()
+myStr = st
+while st:
+    strings.append(st)
+    st = input()
+    myStr += st
+myStr = sorted(myStr)
+myNum = maxNum(myStr)
+mySymbl = maxSymbl(myStr, myNum)
+numStrings = []
+for i in range(len(strings)):
+    numStrings.append(numMaxSymbl(strings[i], mySymbl))
+otkl = []
+sum_otkl = []
+for i in range(0, len(strings)):
+    sum_otkl.append(pow(myNum-numStrings[i], 2))
+    otkl.append(math.sqrt(sum_otkl[i]/(len(strings)-1)))
+print(otkl)
+i = 0
+while i < len(strings)-1:
+    if otkl[i] > otkl[i+1]:
+        t1 = otkl[i]
+        otkl[i] = otkl[i+1]
+        otkl[i+1] = t1
+        t2 = strings[i]
+        strings[i] = strings[i+1]
+        strings[i+1] = t2
+        i = 0
+    else:
+        i += 1
+print(otkl)
+print(strings)
