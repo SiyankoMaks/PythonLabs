@@ -231,3 +231,24 @@ for i in range(1, len(strings)):
         strings[i-1] = strings[i]
         strings[i] = t2
 print(strings)
+
+# 13(9). В порядке увеличения квадратичного отклонения между наибольшим
+# ASCII-кодом символа строки и разницы в ASCII-кодах пар зеркально
+# расположенных символов строки (относительно ее середины).
+
+def square_deviation(s):
+    n = len(s)
+    mid = n // 2
+    max_ascii = max(ord(char) for char in s)
+    mirror_diff = [abs(ord(s[i]) - ord(s[n - 1 - i])) for i in range(mid)]
+    deviation = max_ascii - sum(mirror_diff) / len(mirror_diff)
+    return deviation
+
+print("Введите список строк")
+strings = []
+st = input()
+while st:
+    strings.append(st)
+    st = input()
+sorted_strings = sorted(strings, key=lambda x: square_deviation(x))
+print(sorted_strings)
