@@ -198,3 +198,36 @@ def sortString(s):
 print("Введите строку")
 S = str(input())
 sortString(S)
+
+# 12(6). В порядке увеличения медианного значения выборки строк (прошлое
+# медианное значение удаляется из выборки и производится поиск нового медианного значения)
+
+def find_median(strk):
+    strk = strk.split()
+    sorted_numbers = sorted(map(int, strk))
+    length = len(sorted_numbers)
+    middle = length // 2
+    if length % 2 == 0:
+        median = (sorted_numbers[middle - 1] + sorted_numbers[middle]) / 2
+    else:
+        median = sorted_numbers[middle]
+    return median
+
+print("Введите список строк")
+strings = []
+newstr = []
+st = input()
+while st:
+    strings.append(st)
+    st = input()
+for i in range(len(strings)):
+    newstr.append(find_median(strings[i]))
+for i in range(1, len(strings)):
+    if newstr[i-1] > newstr[i]:
+        t1 = newstr[i-1]
+        newstr[i-1] = newstr[i]
+        newstr[i] = t1
+        t2 = strings[i-1]
+        strings[i-1] = strings[i]
+        strings[i] = t2
+print(strings)
