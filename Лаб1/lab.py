@@ -324,3 +324,28 @@ while i < len(strings)-1:
         i += 1
 print(otkl)
 print(strings)
+
+# Задания 15-19. Решить с помощью методов списков.
+# Вариант 11. Задачи 11, 23, 35, 47, 59
+
+# 15(11). Дан целочисленный массив, в котором лишь один элемент отличается
+# от остальных. Необходимо найти значение этого элемента.
+
+def findElem(ar):
+    ar = sorted(ar)
+    num = 0
+    for i in range(1, len(ar)):
+        if ar[i] == ar[i-1]:
+            continue
+        else:
+            num = ar[i]
+    return num
+
+print("Введите массив чисел")
+arr = []
+a = input()
+while a:
+    arr.append(a)
+    a = input()
+myElem = findElem(arr)
+print(myElem)
