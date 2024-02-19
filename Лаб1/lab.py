@@ -349,3 +349,20 @@ while a:
     a = input()
 myElem = findElem(arr)
 print(myElem)
+
+# 16(23). Дан целочисленный массив. Необходимо найти два наименьших элемента.
+
+print("Введите массив чисел")
+arr = []
+a = input()
+while a:
+    arr.append(a)
+    a = input()
+arr = sorted(arr)
+min1 = arr[0]
+min2 = 0
+for i in range(len(arr)):
+    if min1 != arr[i]:
+        min2 = arr[i]
+        break
+print(min1, min2)
