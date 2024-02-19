@@ -366,3 +366,31 @@ for i in range(len(arr)):
         min2 = arr[i]
         break
 print(min1, min2)
+
+# 17(35). Дано вещественное число R и массив вещественных чисел. Найти
+# элемент массива, который наиболее близок к данному числу.
+
+import math
+
+def findNumber(ar, r):
+    x = 0
+    print(ar)
+    print(r)
+    for i in range(len(ar)):
+        y = abs(ar[i]-r)
+        if i == 0:
+            x = ar[i]
+        if (abs(x-r) > y and i != 0):
+            x = ar[i]
+    return x
+
+print("Введите вещественное число R")
+R = int(input())
+print("Введите массив чисел")
+arr = []
+a = int(input())
+while a != 0:
+    arr.append(a)
+    a = int(input())
+myNum = findNumber(arr, R)
+print(myNum)
