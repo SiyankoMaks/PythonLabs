@@ -414,3 +414,23 @@ while a != 0:
     a = int(input())
 result = find_divisors(arr)
 print(result)
+
+def listSquare(nums):
+    newList = set()
+    for num in nums:
+        counts = 0
+        for numCop in nums:
+            if num == numCop:
+                counts += 1
+        if counts > 2 and num < 100 and num >= 0:
+            newList.add(pow(num, 2))
+    return list(newList)
+
+print("Введите массив положительных чисел")
+arr = []
+a = int(input())
+while a != 0:
+    arr.append(a)
+    a = int(input())
+result = listSquare(arr)
+print(result)
