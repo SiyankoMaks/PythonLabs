@@ -394,3 +394,23 @@ while a != 0:
     a = int(input())
 myNum = findNumber(arr, R)
 print(myNum)
+
+# 18(47). Для введенного списка положительных чисел построить список всех
+# положительных делителей элементов списка без повторений.
+
+def find_divisors(nums):
+    div = set()
+    for num in nums:
+        for i in range(1, num+1):
+            if num % i == 0:
+                div.add(i)
+    return list(div)
+
+print("Введите массив положительных чисел")
+arr = []
+a = int(input())
+while a != 0:
+    arr.append(a)
+    a = int(input())
+result = find_divisors(arr)
+print(result)
